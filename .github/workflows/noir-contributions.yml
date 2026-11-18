@@ -1,0 +1,35 @@
+name: Generate Noir Contribution Graph
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate Noir & Espresso-Gold Snake SVG
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: egorindza
+          outputs: |
+            assets/noir-contributions.svg?palette=github-dark&color_snake=#C8A273&color_dots=#141312,#33291F,#5E4B37,#997A58,#C8A273
+
+      - name: Commit updated SVG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/noir-contributions.svg
+          git diff --staged --quiet || git commit -m "chore: sync noir contribution graph"
+          git push
