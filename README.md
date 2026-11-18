@@ -6,4 +6,8 @@
   </picture>
 </a>
 
-<p align="right"><sub>Telegram: <a href="https://t.me/egor_seredkin">@egor_seredkin</a></sub></p>
+<p align="right">
+  <a href="https://t.me/egor_seredkin"><code>Telegram</code></a>&nbsp;·&nbsp;
+  <a href="https://discord.com/users/290057762405089280"><code>Discord</code></a>&nbsp;·&nbsp;
+  <a href="https://www.instagram.com/egor_seredkin/"><code>Instagram</code></a>
+</p>
